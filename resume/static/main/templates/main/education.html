@@ -1,0 +1,52 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!--start seo blocks-->
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block keywords %}{% endblock %}
+<!--end seo blocks-->
+
+<!--start css blocks-->
+{% block extend_header %}{% endblock %}
+<!--end css blocks-->
+
+<!--start script blocks-->
+{% block extend_footer %}{% endblock %}
+<!--end script blocks-->
+
+<!-- start content blocks-->
+{% block content %}
+<section>
+    <div class="innerPageBannerCol">
+        <div class="container">
+            <div class="row g-4 g-md-3 align-items-center">
+                <div class="col-md-6">
+                    <div class="bannerContent">
+                        <h1 class="xlTitle pb-md-3">See My Schools!</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="lightBg">
+        <div class="container">
+            <div class="portfolioContentMain">
+                <div class="row g-3 g-md-4 g-lg-5 educationRow">
+                    {% for object in object_list %}
+                    <div class="col-md-6 pColMain">
+                        <div class="pCol">
+                            <a href="{% url 'main:education' slug=object.slug %}">
+                                {{object.name}}
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,54 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!--start seo blocks-->
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block keywords %}{% endblock %}
+<!--end seo blocks-->
+
+<!--start css blocks-->
+{% block extend_header %}{% endblock %}
+<!--end css blocks-->
+
+<!--start script blocks-->
+{% block extend_footer %}{% endblock %}
+<!--end script blocks-->
+
+<!-- start content blocks-->
+{% block content %}
+<section>
+    <div class="innerPageBannerCol">
+        <div class="container">
+            <div class="row g-4 g-md-3 align-items-center">
+                <div class="col-md-6">
+                    <div class="bannerContent">
+                        <h1 class="xlTitle pb-md-3">Contact Me Below!</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="lightBg">
+        <div class="container">
+            <form id="contactform" method="POST" action="/contact/">
+            {% csrf_token %}
+                <label for="name">Name</label>
+                {{form.name}}
+                <label for="email">Email</label>
+                {{form.email}}
+                <label for="subject">Message</label>
+                {{form.message}}
+
+                <input class='btn btnPrimary' type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+<!--end content-->

@@ -1,0 +1,67 @@
+{% extends 'main/base.html' %}
+{% load static %}
+<!--start seo blocks-->
+{% block title %}{% endblock %}
+{% block description %}{% endblock %}
+{% block keywords %}{% endblock %}
+<!--end seo blocks-->
+
+<!--start css blocks-->
+{% block extend_header %}{% endblock %}
+<!--end css blocks-->
+
+<!--start script blocks-->
+{% block extend_footer %}{% endblock %}
+<!--end script blocks-->
+<!--start content-->
+{% block content %}
+<section>
+    <div class="innerPageBannerCol">
+        <div class="container">
+            <div class="row g-4 g-md-3 align-items-center">
+                <div class="col-md-6">
+                    <div class="bannerContent">
+                        <h1 class="xlTitle pb-md-3">Welcome To My Gallery</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="lightBg">
+        <div class="container">
+            <div class="galleryContentMain">
+                <div class="row g-3 g-md-4 g-lg-5 galleryRow">
+                    <h4 class="smText pb-3">View my photos!</h4>
+                    {% for object in object_list %}
+                    <div class="col-md-6 pColMain">
+                        <img src="{{object.image.url}}" alt="..." class="pImg">
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="lightBg">
+        <div class="container">
+            <div class="galleryContentMain">
+                <div class="row g-3 g-md-4 g-lg-5 galleryRow">
+                    <h4 class="smText pb-3">Watch Me In Action!</h4>
+                    {% for object in object_list %}
+                    {% if object.is_active %}
+                    <div class="col-md-6 pColMain">
+                        <video src="{{object.video.url}}" class="pVid" type="video/webm"></video>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
